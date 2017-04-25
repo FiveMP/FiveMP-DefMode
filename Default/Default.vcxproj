@@ -18,6 +18,37 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api.h" />
+    <ClInclude Include="json\json-forwards.h" />
+    <ClInclude Include="json\json.h" />
+    <ClInclude Include="sdk\APICheckpoint.h" />
+    <ClInclude Include="sdk\APIEntity.h" />
+    <ClInclude Include="sdk\APINpc.h" />
+    <ClInclude Include="sdk\APIObject.h" />
+    <ClInclude Include="sdk\APIPlayer.h" />
+    <ClInclude Include="sdk\APIServer.h" />
+    <ClInclude Include="sdk\APIVehicle.h" />
+    <ClInclude Include="sdk\APIVisual.h" />
+    <ClInclude Include="sdk\APIWorld.h" />
+    <ClInclude Include="sdk\CMaths.h" />
+    <ClInclude Include="sdk\CVector2.h" />
+    <ClInclude Include="sdk\CVector3.h" />
+    <ClInclude Include="sdk\CVector4.h" />
+    <ClInclude Include="sdk\Plane.h" />
+    <ClInclude Include="sdk\Quaternion.h" />
+    <ClInclude Include="sdk\Structs.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="api.cpp" />
+    <ClCompile Include="json\jsoncpp.cpp" />
+    <ClCompile Include="sdk\CVector2.cpp" />
+    <ClCompile Include="sdk\CVector3.cpp" />
+    <ClCompile Include="sdk\Plane.cpp" />
+    <ClCompile Include="sdk\Quaternion.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5BCC5465-A16B-48F3-82C2-40BB42DF925F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -145,25 +176,6 @@
       <AdditionalDependencies>Server.Launcher.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="api.cpp" />
-    <ClCompile Include="json\jsoncpp.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="api.h" />
-    <ClInclude Include="json\json-forwards.h" />
-    <ClInclude Include="json\json.h" />
-    <ClInclude Include="sdk\APIEntity.h" />
-    <ClInclude Include="sdk\APIObject.h" />
-    <ClInclude Include="sdk\APIPlayer.h" />
-    <ClInclude Include="sdk\APIServer.h" />
-    <ClInclude Include="sdk\APIVehicle.h" />
-    <ClInclude Include="sdk\APIVisual.h" />
-    <ClInclude Include="sdk\APIWorld.h" />
-    <ClInclude Include="sdk\CMaths.h" />
-    <ClInclude Include="sdk\CVector3.h" />
-    <ClInclude Include="sdk\CVector4.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

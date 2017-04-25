@@ -5,41 +5,39 @@ extern "C" {
 #endif
 	namespace API
 	{
-		class Player
+		class NPC
 		{
 		public:
 			/// <summary>
-			/// Gets the model of the player entity.
+			/// Creates a NPC of a desired model at the position defined
 			/// </summary>
-			/// <param name="entity">The entity of the player you wish to get the model of.</param>
-			/// <returns name="model">The player model the player currently has.</returns>
-			DLL_PUBLIC_I static const std::wstring GetModel(const int entity);
-
-			/// <summary>
-			/// Sets the model of the player entity.
-			/// </summary>
-			/// <param name="entity">The entity of the player you wish to set the model of.</param>
-			/// <param name="model">The model you wish to set on the player.</param>
-			DLL_PUBLIC_I static void SetModel(const int entity, const std::wstring model);
-
-			/// <summary>
-			/// Gets the username of the player entity.
-			/// </summary>
-			/// <param name="entity">The entity of the player to get the username of.</param>
-			DLL_PUBLIC_I static const std::string GetUsername(const int entity);
-
+			/// <param name="model">The model of the npc you wish to create</param>
+			/// <param name="position">The position you wish to create the npc at</param>
+			/// <param name="heading">The heading you wish to have the npc facing</param>
+			/// <returns name="entity">The npc server entity id</returns>
+			DLL_PUBLIC_I static const int Create(const std::wstring model, const CVector3 position, const CVector3 rotation);
 		};
 	}
 #ifdef __cplusplus
 }
 #endif
 
-class Player {
+class NPC {
 private:
 	int Entity;
 public:
 	const int GetEntity() { return Entity; }
-	const int SetEntity(const int entity) { Entity = entity; }
+
+	void Create(const std::wstring model, const CVector3 position, const CVector3 rotation)
+	{
+		Entity = API::NPC::Create(model, position, rotation);
+	}
+
+	void Destroy() 
+	{
+		API::Entity::Destroy(Entity);
+		Entity = -1;
+	}
 
 	const CVector3 GetPosition()
 	{
@@ -90,7 +88,7 @@ public:
 	{
 		API::Entity::SetPedHeadOverlay(Entity, overlayid, overlay);
 	}
-
+	
 	const PedProp GetPedProp(const int compotentid)
 	{
 		return API::Entity::GetPedProp(Entity, compotentid);
@@ -121,29 +119,4 @@ public:
 		API::Entity::SetViewDistance(Entity, distance);
 	}
 
-	const std::wstring GetModel()
-	{
-		return API::Player::GetModel(Entity);
-	}
-
-	void SetModel(const std::wstring model)
-	{
-		API::Player::SetModel(Entity, model);
-	}
-
-	// Sends a Message above the map for this player.
-	void ShowMessageAboveMap(const std::wstring message, const std::wstring pic, const int icontype, const std::wstring sender, const std::wstring subject)
-	{
-		API::Visual::ShowMessageAboveMapToPlayer(Entity, message, pic, icontype, sender, subject);
-	}
-
-	void SendChatMessage(const std::string message)
-	{
-		API::Visual::SendChatMessageToPlayer(Entity, message);
-	}
-
-	const std::string GetUsername()
-	{
-		API::Player::GetUsername(Entity);
-	}
 };

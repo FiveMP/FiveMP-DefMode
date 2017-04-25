@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="api.cpp" />
-    <ClCompile Include="json\jsoncpp.cpp">
-      <Filter>JsonCpp</Filter>
-    </ClCompile>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{697e1931-e78e-4586-9040-a4f07e3ac533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JsonCpp">
+      <UniqueIdentifier>{d2f504ce-07f8-4893-9bbe-d26ee5982945}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="api.h" />
+    <ClInclude Include="json\json.h">
+      <Filter>JsonCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json-forwards.h">
+      <Filter>JsonCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\APIVehicle.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\APIVisual.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\APIWorld.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="sdk\CMaths.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\CVector2.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="sdk\CVector3.h">
@@ -17,7 +36,22 @@
     <ClInclude Include="sdk\CVector4.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="sdk\Plane.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\Quaternion.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\Structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\APICheckpoint.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="sdk\APIEntity.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\APINpc.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="sdk\APIObject.h">
@@ -29,28 +63,26 @@
     <ClInclude Include="sdk\APIServer.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\APIVehicle.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\APIVisual.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\APIWorld.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="json\json.h">
-      <Filter>JsonCpp</Filter>
-    </ClInclude>
-    <ClInclude Include="json\json-forwards.h">
-      <Filter>JsonCpp</Filter>
-    </ClInclude>
+    <ClInclude Include="api.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="JsonCpp">
-      <UniqueIdentifier>{70994e8f-9eb7-4926-8932-4237a8024ef3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SDK">
-      <UniqueIdentifier>{bdd8c060-3d72-4386-b6ca-45956e98158a}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="json\jsoncpp.cpp">
+      <Filter>JsonCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\CVector2.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\CVector3.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\Plane.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\Quaternion.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="api.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
 </Project>

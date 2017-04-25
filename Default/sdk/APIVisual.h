@@ -5,8 +5,9 @@ extern "C" {
 #endif
 	namespace API
 	{
-		namespace Visual
+		class Visual
 		{
+		public:
 			/// <summary>
 			/// Sends a notification message that displays above the game minimap to all clients.
 			/// </summary>
@@ -16,7 +17,7 @@ extern "C" {
 			/// <param name="sender">The sender is the very top header. This can be any string.</param>
 			/// <param name="subject">The subject is the header under the sender.</param>
 			/// <returns></returns>
-			DLL_PUBLIC_I void ShowMessageAboveMap(const std::string message, const std::string pic, int icontype, const std::string sender, const std::string subject);
+			DLL_PUBLIC_I static void ShowMessageAboveMap(const std::wstring message, const std::wstring pic, const int icontype, const std::wstring sender, const std::wstring subject);
 
 			/// <summary>
 			/// Sends a notification message that displays above the game minimap to a specific client.
@@ -28,8 +29,21 @@ extern "C" {
 			/// <param name="sender">The sender is the very top header. This can be any string.</param>
 			/// <param name="subject">The subject is the header under the sender.</param>
 			/// <returns></returns>
-			DLL_PUBLIC_I void ShowMessageAboveMapToPlayer(const int entity, const std::string message, const std::string pic, int icontype, const std::string sender, const std::string subject);
-		}
+			DLL_PUBLIC_I static void ShowMessageAboveMapToPlayer(const int entity, const std::wstring message, const std::wstring pic, const int icontype, const std::wstring sender, const std::wstring subject);
+
+			/// <summary>
+			/// Sends a chat message to all clients.
+			/// </summary>
+			/// <param name="message">The string of the message</param>
+			DLL_PUBLIC_I static void SendChatMessage(const std::string message);
+
+			/// <summary>
+			/// Sends a chat message to a client.
+			/// </summary>
+			/// <param name="entity">The entityid of the player you wish to sedn the message to.</param>
+			/// <param name="message">The string of the message</param>
+			DLL_PUBLIC_I static void SendChatMessageToPlayer(const int entity, const std::string message);
+		};
 	}
 #ifdef __cplusplus
 }
